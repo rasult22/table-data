@@ -101,9 +101,13 @@ export default new Vuex.Store({
         deleteElementById(state.tree, id)
 
       },
-      //updateRow(state, payload){
+      updateRow(state, payload){
         // update row by ID
-      //}
+        // payload.id - id of the element that needs to be updated
+        // payload.label - new label of the existing element,
+        // payload.count - new count of the existing element
+        updateElementById(state.tree, payload)
+      }
 
     },
     actions:{
@@ -185,6 +189,22 @@ function modifyElementById(tree, row){
       }
     }
   })
+}
+
+function updateElementById(tree, payload){
+    tree.forEach(elem=>{
+      // Если нашли элемент, то обновляем данные
+      if(elem.id === payload.id){
+        elem.label = payload.label;
+        elem.count = payload.count
+      }
+      else{
+        // Иначе ищем элемент рекурсивно среди детей
+        if(elem.children){
+          updateElementById(elem.children, payload)
+        }
+      }
+    })
 }
 // return a full path of an element of sorted data
 function createPath(elem, data){

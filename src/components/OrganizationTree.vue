@@ -15,6 +15,7 @@
               </select>
               <button class="pageButton" :disabled="disableButton">Add</button>        
         </form>
+        
     </div>
     <div class="locationTable">
       <div class="locationTable__headTitle ">Name</div>
@@ -23,6 +24,7 @@
       
       <location-node :node="data" :level="0" v-for="data in treeData" :key="data.id"  />
     </div>
+    
   </div>
 </template>
 
@@ -33,7 +35,7 @@ import {mapMutations} from 'vuex'
 
 export default {
   components:{
-    LocationNode
+    LocationNode,
   },
   data: function(){
     return {
@@ -90,11 +92,14 @@ class TableRow{
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style >
 .locationTreeTitle{
   background: #05214a;
   color: #f2f4f7;
+  text-align: left;
+  font-size: 25px;
   padding: 20px;
+  text-transform: uppercase;
 }
 .locationTable{
   border: 1px solid #f2f4f7;
@@ -102,7 +107,7 @@ class TableRow{
   background: #05214a;
   color: #f2f4f7;
   display: grid;
-  grid-template-columns: 5fr 2fr 1fr;
+  grid-template-columns: 5fr 2fr .6fr;
 }
 .locationTable__headTitle{
   text-align: left;
