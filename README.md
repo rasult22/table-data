@@ -1,5 +1,9 @@
 # table-data
 
+### View project:
+```
+https://rasult22.github.io/table-data/dist/index.html
+```
 ## Project setup
 ```
 npm install
