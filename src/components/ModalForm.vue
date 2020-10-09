@@ -17,7 +17,7 @@
               <input type="number" class="modifyElement__input" id="label" v-model="count">
             </div>
             <div>
-              <button class="modifyButton" @click="handleUpdate">Update</button>
+              <button class="modifyButton" :disabled="disableButton" @click="handleUpdate">Update</button>
             </div>
           </form>
       </section>
@@ -50,6 +50,9 @@ methods:{
   }
 },
 computed:{
+  disableButton(){
+      return this.label === '' || this.count === null || this.count === ''
+    },
   getPath(){
       return this.$store.getters.getTreePaths;
     },
