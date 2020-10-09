@@ -7,7 +7,6 @@
 <script>
 import OrganizationTree from './components/OrganizationTree.vue'
 
-
 export default {
   name: 'App',
   components: {

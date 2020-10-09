@@ -5,15 +5,21 @@
         <form @submit.prevent="handleSubmit" class="addElement__Form">
               <input type="text" class="addElement__input" v-model="label" placeholder="Location name">
               <input type="number" class="addElement__input" v-model="count" placeholder="Count">
-              <select name="locations" class="addElement__select" id="select_id" v-model="selected">
+              <select name="locations" 
+                      class="addElement__select" 
+                      id="select_id" 
+                      v-model="selected">
                 <option value="/">
                     / 
                 </option>
-                <option v-for="element in this.getPath" :value="element.path" :key="element.id">
+                <option v-for="element in this.getPath" 
+                        :value="element.path" 
+                        :key="element.id">
                     {{element.path}}
                 </option>     
               </select>
-              <button class="pageButton" :disabled="disableButton">Add</button>        
+              <button class="pageButton" 
+                      :disabled="disableButton">Add</button>        
         </form>
         
     </div>
@@ -22,7 +28,10 @@
       <div class="locationTable__headTitle">Count</div>
       <div class="locationTable__headTitle">Actions</div>
       
-      <location-node :node="data" :level="0" v-for="data in treeData" :key="data.id"  />
+      <location-node :node="data" 
+                     :level="0" 
+                     v-for="data in treeData" 
+                     :key="data.id"  />
     </div>
     
   </div>
@@ -31,7 +40,6 @@
 <script>
 import LocationNode from './LocationNode'
 import {mapMutations} from 'vuex'
-
 
 export default {
   components:{
@@ -42,7 +50,6 @@ export default {
       label: '',
       selected: '/',
       count: null
-
     }
   },
   computed:{

@@ -1,13 +1,15 @@
 <template>
   <div class="modal" v-if="isModifying">
     <div class="modifyForm" >
-      <a href="#" class="btn" @click.prevent="handleClose">close</a>
+      <a href="#" 
+         class="btn" 
+         @click.prevent="handleClose"> <img  class="btn__delete" src="../assets/delete.svg" /></a>
       <header>
           <h2>Modify {{node.label}}</h2>
           <p class="path">{{path}}</p>
       </header>
       <section>
-          <form action="" @submit.prevent="handeUpdate" class="modifyElement">
+          <form @submit.prevent="handeUpdate" class="modifyElement">
             <div>
               <label for="label" class="modifyElement__label">New label</label>
               <input type="text" class="modifyElement__input" id="label" v-model="label">
@@ -17,7 +19,9 @@
               <input type="number" class="modifyElement__input" id="label" v-model="count">
             </div>
             <div>
-              <button class="modifyButton" :disabled="disableButton" @click="handleUpdate">Update</button>
+              <button class="modifyButton" 
+                     :disabled="disableButton" 
+                     @click="handleUpdate">Update</button>
             </div>
           </form>
       </section>
@@ -30,9 +34,9 @@ import {mapMutations} from 'vuex'
 export default {
 data: ()=>{
   return {
-    label: 'Hello',
+    label: '',
     path:'/',
-    count: 20
+    count: 0
   } 
 },
 methods:{
@@ -69,7 +73,6 @@ created(){
   this.$data.count = this.node.count;
   this.$data.label = this.node.label;
   let node = this.node;
-  console.log(this.getPath)
   let path = '';
   this.getPath.forEach(element => {
       if(element.id === node.id){

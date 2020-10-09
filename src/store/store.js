@@ -1,6 +1,6 @@
+
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 
 Vue.use(Vuex)
 
@@ -115,6 +115,7 @@ export default new Vuex.Store({
     }
 
 })
+
 
 // returns an array that doesn't have nesting tree
 function clearNesting(tree){
@@ -235,7 +236,6 @@ function recursiveToggleShow (array, payload){
   array.forEach(element=>{
       // Если элемент является тем, на котором была нажата кнопка
       if(element.id === payload.id){
-        console.log(element)
         // Проверяем есть ли у него дети
         if(element.children){
           // По каждому ребенку мы проходимся и меняем значение
@@ -322,4 +322,6 @@ class TableRow{
     this.show = show;
   }
 }
+
+
 

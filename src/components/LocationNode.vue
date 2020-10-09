@@ -9,7 +9,9 @@
                     color: getColor.isDark ?  '#F2F2F2': '#2C3E50'}">
             {{ node.label }}
             <button class="btn" 
-                    @click="handleShow"><img :class="showChild ? 'btn__arrow btn__arrow--opened': 'btn__arrow '" src="../assets/arrow.svg" /></button>
+                    @click="handleShow">
+                    <img :class="showChild ? 'btn__arrow btn__arrow--opened': 'btn__arrow '" src="../assets/arrow.svg" />
+            </button>
         </div>
       </transition>
       <transition name="fade">
@@ -26,13 +28,22 @@
             :style="{backgroundColor:getColor.color, 
                     color: getColor.isDark ?  '#F2F2F2': '#2C3E50'}">
             <button class="btn" 
-                    @click="handleDelete"><img class="btn__delete" src="../assets/delete.svg"></button> 
-            <button class="btn" @click="handeEdit"><img class="btn__edit" src="../assets/edit.svg"></button>
+                    @click="handleDelete">
+                    <img class="btn__delete" src="../assets/delete.svg">
+            </button> 
+            <button class="btn" @click="handeEdit">
+              <img class="btn__edit" src="../assets/edit.svg">
+            </button>
         </div>
       </transition>
-      <locationNodeRecursive v-for="nodeItem in node.children" :key="nodeItem.id" :level="level + 1" :node="nodeItem"/>
+      <locationNodeRecursive v-for="nodeItem in node.children" 
+                            :key="nodeItem.id" 
+                            :level="level + 1" 
+                            :node="nodeItem"/>
       <transition name="fade">
-        <ModalForm :node="node" :startModify="modify" @closed="handeEdit" />
+        <ModalForm :node="node" 
+                   :startModify="modify"
+                   @closed="handeEdit" />
       </transition>
   </div>
   <div class="tableRow" 
@@ -45,7 +56,9 @@
                     color: getColor.isDark ?  '#F2F2F2': '#2C3E50' }">
             {{ node.label }}
             <button class="btn" 
-                    @click="handleShow"><img :class="showChild ? 'btn__arrow btn__arrow--opened': 'btn__arrow '" src="../assets/arrow.svg" /></button>
+                    @click="handleShow">
+                      <img :class="showChild ? 'btn__arrow btn__arrow--opened': 'btn__arrow '" src="../assets/arrow.svg" />
+            </button>
         </div>
       </transition>
       <transition name="fade">
@@ -62,8 +75,13 @@
             :style="{backgroundColor:getColor.color, 
                     color: getColor.isDark ?  '#F2F2F2': '#2C3E50'}" >
             <button class="btn" 
-                    @click="handleDelete"><img class="btn__delete" src="../assets/delete.svg"></button> 
-            <button class="btn" @click="handeEdit"><img class="btn__edit" src="../assets/edit.svg"></button>
+                    @click="handleDelete"> 
+                    <img class="btn__delete" src="../assets/delete.svg">
+            </button> 
+            <button class="btn" 
+                    @click="handeEdit">
+                    <img class="btn__edit" src="../assets/edit.svg">
+            </button>
         </div>
       </transition>
       <transition name="fade">
