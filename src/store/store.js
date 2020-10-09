@@ -190,7 +190,7 @@ function modifyElementById(tree, row){
     }
   })
 }
-
+// Обновить существующий элемент в дереве с новыми данными
 function updateElementById(tree, payload){
     tree.forEach(elem=>{
       // Если нашли элемент, то обновляем данные
